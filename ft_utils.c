@@ -6,37 +6,57 @@
 /*   By: skuznets <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:40:02 by skuznets          #+#    #+#             */
-/*   Updated: 2024/01/27 16:43:02 by skuznets         ###   ########.fr       */
+/*   Updated: 2024/01/27 18:32:20 by skuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c)
+int	ft_putchar(char c)
 {
 	write(1, &c, 1);
+	return (1);
 }
 
-void    ft_putnbr(int n)
+int	ft_putstr(char* s)
 {
-	if (n == -2147483648)
-	{
-		ft_putchar('-');
-		ft_putchar('2');
-		ft_putnbr(147483648);
-		return ;
-	}
-	if (n < 0)
-	{
-		ft_putchar('-');
-		n = -n;
-	}
-	if (n >= 10)
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
-	if (n < 10)
-		ft_putchar(n + '0');
+	if (s == NULL)
+		return (0);
+	while (*s)
+		write(1, s++, 1);
+	return (ft_strlen(s));
 }
 
+int	ft_printstring(char *s)
+{
+
+	int		count;
+
+	count = 0;
+	if (s == NULL)
+	{
+		ft_putstr("(null)");
+		return (6);
+	}
+	else
+		count += ft_putstr(s);
+	return (count);
+}
+
+int	ft_printnumber(int n)
+{
+	int		len;
+	char	*num;
+
+	len = 0;
+	num = ft_itoa(n);
+	len = ft_printstring(num);
+	free(num);
+	return (len);
+}
+
+int	ft_printpercent(void)
+{
+	write(1, "%", 1);
+	return (1);
+}

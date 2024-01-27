@@ -6,7 +6,7 @@
 /*   By: skuznets <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:26:24 by skuznets          #+#    #+#             */
-/*   Updated: 2024/01/27 16:40:52 by skuznets         ###   ########.fr       */
+/*   Updated: 2024/01/27 18:30:16 by skuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@
 # include <unistd.h>
 
 int		ft_printf(const char *format, ...);
-void	ft_putchar(char c);
-void	ft_putnbr(int n);
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_printstring(char *s);
+int		ft_printnumber(int n);
+int		ft_printpercent(void);
 
 #endif
