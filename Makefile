@@ -6,7 +6,7 @@
 #    By: skuznets <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/27 16:27:36 by skuznets          #+#    #+#              #
-#    Updated: 2024/01/27 17:16:27 by skuznets         ###   ########.fr        #
+#    Updated: 2024/03/16 19:24:22 by skuznets         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,11 +14,12 @@ NAME = libftprintf.a
 AR = ar rc
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-LIBFT		= libft
+LIBFT	= libft
 
-SRC = ft_printf.c ft_utils.c
-
-
+SRC = ft_printf.c ft_utils/ft_printnumber.c ft_utils/ft_printpercent.c \
+	ft_utils/ft_printstring.c ft_utils/ft_putchar.c ft_utils/ft_putstr.c \
+	ft_utils/ft_printunsignint.c ft_utils/ft_printhex.c ft_utils/ft_printupperhex.c \
+	ft_utils/ft_printpointer.c
 
 OBJ = $(SRC:.c=.o)
 

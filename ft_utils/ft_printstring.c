@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils.c                                         :+:      :+:    :+:   */
+/*   ft_printstring.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skuznets <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/27 16:40:02 by skuznets          #+#    #+#             */
-/*   Updated: 2024/01/27 18:32:20 by skuznets         ###   ########.fr       */
+/*   Created: 2024/03/16 16:53:23 by skuznets          #+#    #+#             */
+/*   Updated: 2024/03/16 19:34:10 by skuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	ft_putchar(char c)
-{
-	write(1, &c, 1);
-	return (1);
-}
-
-int	ft_putstr(char* s)
-{
-	if (s == NULL)
-		return (0);
-	while (*s)
-		write(1, s++, 1);
-	return (ft_strlen(s));
-}
+#include "../ft_printf.h"
 
 int	ft_printstring(char *s)
 {
-
 	int		count;
 
 	count = 0;
@@ -40,23 +24,5 @@ int	ft_printstring(char *s)
 	}
 	else
 		count += ft_putstr(s);
-	return (count);
-}
-
-int	ft_printnumber(int n)
-{
-	int		len;
-	char	*num;
-
-	len = 0;
-	num = ft_itoa(n);
-	len = ft_printstring(num);
-	free(num);
-	return (len);
-}
-
-int	ft_printpercent(void)
-{
-	write(1, "%", 1);
-	return (1);
+	return (ft_strlen(s));
 }

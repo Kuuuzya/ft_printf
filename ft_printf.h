@@ -6,7 +6,7 @@
 /*   By: skuznets <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:26:24 by skuznets          #+#    #+#             */
-/*   Updated: 2024/01/27 18:30:16 by skuznets         ###   ########.fr       */
+/*   Updated: 2024/03/16 19:24:02 by skuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,9 @@ int		ft_putstr(char *s);
 int		ft_printstring(char *s);
 int		ft_printnumber(int n);
 int		ft_printpercent(void);
+int		ft_printunsignint(unsigned int n);
+int		ft_printhex(unsigned int n);
+int		ft_printupperhex(unsigned int n);
+int		ft_printpointer(unsigned long n);
 
 #endif
