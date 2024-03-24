@@ -6,13 +6,13 @@
 /*   By: skuznets <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/27 16:24:47 by skuznets          #+#    #+#             */
-/*   Updated: 2024/03/16 19:48:39 by skuznets         ###   ########.fr       */
+/*   Updated: 2024/03/20 18:45:33 by skuznets         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print(va_list params, const char *format, int i)
+static int	ft_parser(va_list params, const char *format, int i)
 {
 	int	count;
 
@@ -24,7 +24,7 @@ int	ft_print(va_list params, const char *format, int i)
 	else if (format[i] == 's')
 		count += ft_printstring(va_arg(params, char *));
 	else if (format[i] == 'u')
-		count += ft_printunsignint(va_arg(params, unsigned int));
+		count += ft_printunsignint(va_arg(params, int));
 	else if (format[i] == 'x')
 		count += ft_printhex(va_arg(params, unsigned int));
 	else if (format[i] == 'X')
@@ -52,7 +52,7 @@ int	ft_printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			i++;
-			count += ft_print(params, format, i);
+			count += ft_parser(params, format, i);
 		}
 		else
 			count += ft_putchar(format[i]);
@@ -79,4 +79,4 @@ int	ft_printf(const char *format, ...)
 // 	printf("%X\n", 42);
 // 	printf("\001\002\007\v\010\f\r\n");
 // 	return (0);
-// }
+// }c
